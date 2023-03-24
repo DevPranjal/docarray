@@ -158,6 +158,8 @@ class DocumentSummary:
                 if len(col_2) > 50:
                     col_2 = f'{col_2[: 50]}' + ' ... } ' + f'(length: {len(value)})'
                 table.add_row(col_1, text.Text(col_2))
+            elif isinstance(value, (int, float)):
+                table.add_row(col_1, text.Text(str(value)))
 
         if table.rows:
             yield table
